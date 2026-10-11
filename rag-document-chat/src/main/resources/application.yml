@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: rag-document-chat
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+gemini:
+  api-key: ${GEMINI_API_KEY:}
+  chat-model: gemini-2.0-flash
+  embedding-model: gemini-embedding-001

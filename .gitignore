@@ -1,0 +1,12 @@
+.gradle/
+**/build/
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+out/
+.env
+.env.*
+!.env.example
+*.log

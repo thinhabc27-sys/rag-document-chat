@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // LangChain4j & Gemini
+    implementation platform('dev.langchain4j:langchain4j-bom:1.19.0')
+    implementation 'dev.langchain4j:langchain4j'
+    implementation 'dev.langchain4j:langchain4j-google-ai-gemini'
+
+    // PDFBox for PDF parsing
+    implementation 'org.apache.pdfbox:pdfbox:2.0.31'
+
+    // Apache POI for Word (.docx) parsing
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('bootJar') {
+    archiveFileName = 'rag-document-chat.jar'
+}
